@@ -11,6 +11,7 @@ void turn_player_x(int *cell);
 void turn_player_o(int *cell);
 void get_row_col(int cell, int *row, int *col);
 int validate_input(int cell);
+int show_result(char ch);
 
 // The main function
 int main()
@@ -98,4 +99,68 @@ void draw_board()
 
     printf(" %c | %c | %c \n", game_board[2][0], game_board[2][1], game_board[2][2]);
     printf("---|---|---\n");
+}
+
+// Function to show the winner
+int show_result(char ch)
+{
+    int status = 1;
+
+    // Check diagonal
+    if (game_board[0][0] == ch && game_board[1][1] == ch && game_board[2][2] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check diagonal
+    else if (game_board[0][2] == ch && game_board[1][1] == ch && game_board[2][0] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check first column
+    else if (game_board[0][0] == ch && game_board[1][0] == ch && game_board[2][0] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check second column
+    else if (game_board[0][1] == ch && game_board[1][1] == ch && game_board[2][1] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check third column
+    else if (game_board[0][2] == ch && game_board[1][2] == ch && game_board[2][2] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check first row
+    else if (game_board[0][0] == ch && game_board[0][1] == ch && game_board[0][2] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check second row
+    else if (game_board[1][0] == ch && game_board[1][1] == ch && game_board[1][2] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    // Check third row
+    else if (game_board[2][0] == ch && game_board[2][1] == ch && game_board[2][2] == ch)
+    {
+        printf("Player %c is winner\n", ch);
+        status = 0;
+    }
+
+    return status;
 }
