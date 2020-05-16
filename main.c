@@ -7,6 +7,7 @@ char game_board[3][3];
 
 // Function prototypes
 void draw_board();
+void get_row_col(int cell, int *row, int *col);
 
 // The main function
 int main()
@@ -23,6 +24,13 @@ int main()
     // Draw board with current data
     draw_board();
 
+
+// Function to calculate row & column number from selected cell
+void get_row_col(int cell, int *row, int *col)
+{
+    *row = (cell - 1) / 3;
+    *col = (cell - 1) % 3;
+}
     return 0;
 }
 
