@@ -57,7 +57,7 @@ int main()
         // If no available cells left
         else if (available_cells == 0)
         {
-            printf("Game drawn!\n");
+            printf("\nGame drawn!\n");
             break;
         }
 
@@ -82,7 +82,7 @@ int main()
         // If no available cells left
         else if (available_cells == 0)
         {
-            printf("Game drawn!\n");
+            printf("\nGame drawn!\n");
             break;
         }
     }
@@ -170,56 +170,56 @@ int evaluate_winner(char player)
     // Check diagonal
     if (game_board[0][0] == player && game_board[1][1] == player && game_board[2][2] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check diagonal
     else if (game_board[0][2] == player && game_board[1][1] == player && game_board[2][0] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check first column
     else if (game_board[0][0] == player && game_board[1][0] == player && game_board[2][0] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check second column
     else if (game_board[0][1] == player && game_board[1][1] == player && game_board[2][1] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check third column
     else if (game_board[0][2] == player && game_board[1][2] == player && game_board[2][2] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check first row
     else if (game_board[0][0] == player && game_board[0][1] == player && game_board[0][2] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check second row
     else if (game_board[1][0] == player && game_board[1][1] == player && game_board[1][2] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
     // Check third row
     else if (game_board[2][0] == player && game_board[2][1] == player && game_board[2][2] == player)
     {
-        printf("Player %c is winner\n", player);
+        printf("\nPlayer %c is winner\n", player);
         status = 0;
     }
 
