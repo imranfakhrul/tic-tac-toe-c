@@ -5,6 +5,8 @@
 // Array to hold the cell status
 char game_board[3][3];
 
+// Function prototypes
+void draw_board();
 
 // The main function
 int main()
@@ -18,5 +20,26 @@ int main()
         for (col = 0; col < 3; col++)
             game_board[row][col] = start_char++;
 
+    // Draw board with current data
+    draw_board();
+
     return 0;
+}
+
+void draw_board()
+{
+    int i;
+    int j;
+
+    printf("TIC TAC TOE\n");
+    printf("\nDigits (1-9) indicates valid cell number\n\n");
+
+    printf(" %c | %c | %c \n", game_board[0][0], game_board[0][1], game_board[0][2]);
+    printf("---|---|---\n");
+
+    printf(" %c | %c | %c \n", game_board[1][0], game_board[1][1], game_board[1][2]);
+    printf("---|---|---\n");
+
+    printf(" %c | %c | %c \n", game_board[2][0], game_board[2][1], game_board[2][2]);
+    printf("---|---|---\n");
 }
