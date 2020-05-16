@@ -8,6 +8,7 @@ char game_board[3][3];
 // Function prototypes
 void draw_board();
 void get_row_col(int cell, int *row, int *col);
+int validate_input(int cell);
 
 // The main function
 int main()
@@ -31,6 +32,22 @@ void get_row_col(int cell, int *row, int *col)
     *row = (cell - 1) / 3;
     *col = (cell - 1) % 3;
 }
+
+// Function to check whether the selected cell is invalid or not
+int validate_input(int cell)
+{
+    int row, col;
+
+    // If cell is less than 1 or greater than 9; invalid
+    if (cell < 1 || cell > 9)
+        return 1;
+
+    // If cell is already occupied, invalid
+    get_row_col(cell, &row, &col);
+
+    if ('o' == game_board[row][col] || 'x' == game_board[row][col])
+        return 2;
+
     return 0;
 }
 
