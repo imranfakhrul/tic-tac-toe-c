@@ -7,6 +7,8 @@ char game_board[3][3];
 
 // Function prototypes
 void draw_board();
+void turn_player_x(int *cell);
+void turn_player_o(int *cell);
 void get_row_col(int cell, int *row, int *col);
 int validate_input(int cell);
 
@@ -25,6 +27,35 @@ int main()
     // Draw board with current data
     draw_board();
 
+
+
+// Function to make player x's move
+void turn_player_x(int *p_cell)
+{
+    int cell;
+
+    do
+    {
+        printf("Player X:\nSelect valid cell number: ");
+        scanf("%d", &cell);
+    } while (0 != validate_input(cell));
+
+    *p_cell = cell;
+}
+
+// Function to make player o's move
+void turn_player_o(int *p_cell)
+{
+    int cell;
+
+    do
+    {
+        printf("Player O:\nSelect valid cell number: ");
+        scanf("%d", &cell);
+    } while (0 != validate_input(cell));
+
+    *p_cell = cell;
+}
 
 // Function to calculate row & column number from selected cell
 void get_row_col(int cell, int *row, int *col)
