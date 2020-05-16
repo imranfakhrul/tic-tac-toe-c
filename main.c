@@ -12,7 +12,7 @@ void turn_player_x(int *cell);
 void turn_player_o(int *cell);
 void get_row_col(int cell, int *row, int *col);
 int validate_input(int cell);
-int show_result(char ch);
+int evaluate_winner(char ch);
 
 // The main function
 int main()
@@ -49,7 +49,7 @@ int main()
         draw_board();
 
         // Check whether first player is winner or not
-        if (show_result('x') == 0)
+        if (evaluate_winner('x') == 0)
         {
             break;
         }
@@ -74,7 +74,7 @@ int main()
         draw_board();
 
         // Check whether first player is winner or not
-        if (show_result('o') == 0)
+        if (evaluate_winner('o') == 0)
         {
             break;
         }
@@ -163,7 +163,7 @@ void draw_board()
 }
 
 // Function to show the winner
-int show_result(char ch)
+int evaluate_winner(char ch)
 {
     int status = 1;
 
