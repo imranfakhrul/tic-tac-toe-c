@@ -1,5 +1,6 @@
 // Header files
 #include <stdio.h>
+#include <stdlib.h>
 
 // Global variables
 // Array to hold the cell status
@@ -16,8 +17,12 @@ int show_result(char ch);
 // The main function
 int main()
 {
+    int x = 0;
+    int y = 0;
     int row = 0;
     int col = 0;
+    int available_cells = 9;
+    int selected_cell = 0;
     char start_char = '1';
 
     // Fill all the cell 1-9
@@ -28,7 +33,62 @@ int main()
     // Draw board with current data
     draw_board();
 
+    // Loop until we've played all the cell
+    while (available_cells >= 0)
+    {
+        // Assume first player is player x
+        turn_player_x(&selected_cell);
+        // get row and column from the selected cell
+        get_row_col(selected_cell, &x, &y);
+        // Update the array
+        game_board[x][y] = 'x';
+        // Decrease available cells
+        --available_cells;
+        // Redraw board
+        system("clear"); // Clear the screen
+        draw_board();
 
+        // Check whether first player is winner or not
+        if (show_result('x') == 0)
+        {
+            break;
+        }
+
+        // If no available cells left
+        else if (available_cells == 0)
+        {
+            printf("Game drawn!\n");
+            break;
+        }
+
+        // Assume second player is player o
+        turn_player_o(&selected_cell);
+        // get row and column from the selected cell
+        get_row_col(selected_cell, &x, &y);
+        // Update the array
+        game_board[x][y] = 'o';
+        // Decrease available cells
+        --available_cells;
+        // Redraw board
+        system("clear"); // Clear the screen
+        draw_board();
+
+        // Check whether first player is winner or not
+        if (show_result('o') == 0)
+        {
+            break;
+        }
+
+        // If no available cells left
+        else if (available_cells == 0)
+        {
+            printf("Game drawn!\n");
+            break;
+        }
+    }
+
+    return 0;
+}
 
 // Function to make player x's move
 void turn_player_x(int *p_cell)
@@ -83,6 +143,7 @@ int validate_input(int cell)
     return 0;
 }
 
+// Function to draw board with current data
 void draw_board()
 {
     int i;
